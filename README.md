@@ -40,3 +40,4 @@ Our mission is to simplify the crypto journey for users while promoting **long-t
 ---
 
 ## 🔹 Repository Structure
+/contracts       # Smart contract source code (Solidity)
