@@ -71,3 +71,18 @@ contract NeonexToken is ERC20, Ownable {
         _mint(to, amount);
     }
 }
+# Neonex-Token (NEX)
+
+## Features
+- AI integration for smart transactions
+- Minimal transaction fees
+- Secure and scalable
+
+## Quick Start
+Clone repo and install dependencies:
+
+## Documentation
+See [Whitepaper](link) and [API Docs](link).
+
+## Contributing
+Read guidelines in CONTRIBUTING.md
