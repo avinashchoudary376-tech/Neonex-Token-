@@ -40,4 +40,34 @@ Our mission is to simplify the crypto journey for users while promoting **long-t
 ---
 
 ## 🔹 Repository Structure
-/contracts       # Smart contract source code (Solidity)
+contracts/NeonexToken.sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+/// @title Neonex Token (NEX)
+/// @notice AI-powered, low-fee, fast transaction token on BSC
+/// @dev BEP-20 compatible ERC20 using OpenZeppelin
+
+contract NeonexToken is ERC20, Ownable {
+    uint256 private constant INITIAL_SUPPLY = 1_000_000_000 * 10 ** 18; // 1 Billion NEX
+
+    constructor() ERC20("Neonex", "NEX") {
+        _mint(msg.sender, INITIAL_SUPPLY);
+    }
+
+    /// @notice Burn tokens to reduce supply (deflationary model)
+    /// @param amount The number of tokens to burn
+    function burn(uint256 amount) external {
+        _burn(msg.sender, amount);
+    }
+
+    /// @notice Mint new tokens (only owner — use carefully)
+    /// @param to Recipient address
+    /// @param amount Amount to mint (in wei)
+    function mint(address to, uint256 amount) external onlyOwner {
+        _mint(to, amount);
+    }
+}
